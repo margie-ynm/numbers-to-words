@@ -2,7 +2,7 @@ class Fixnum
   define_method(:numbers_to_words) do
 
   ones = {
-    "0"=> "zero",
+    "0"=> "",
     "1"=> "one",
     "2"=> "two",
     "3"=> "three",
@@ -42,7 +42,15 @@ class Fixnum
     word = ones.fetch(self.to_s())
     final_numbers.push(word)
     puts word
-  elsif self == 20
+  elsif self == 20 || self == 50 || self == 60 || self == 70 || self == 80 || self == 90
+    split_number = self.to_s.split("")
+    number = split_number[0].to_i.*(10)
+    puts number
+    word = doubles.fetch(number.to_s())
+    final_numbers.push(word)
+
+  elsif (21..99).include?(self)
+    i = 0
     split_number = self.to_s.split("")
     # split_number.each() do |n|
     number = split_number[0].to_i.*(10)
@@ -50,8 +58,16 @@ class Fixnum
     word = doubles.fetch(number.to_s())
     final_numbers.push(word)
 
-    # i+=1
+    i = 1
 
+    number2 = split_number[1].to_i.*(1)
+    puts number2
+    word2 = ones.fetch(number2.to_s())
+    final_numbers.push(word2)
+
+
+
+    # i+=1
 
       # elsif self < 20 and self > 9 and i < 1
       #   word = tens.fetch(n)
